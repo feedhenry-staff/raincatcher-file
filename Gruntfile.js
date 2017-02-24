@@ -18,8 +18,8 @@ module.exports = function(grunt){
     },
     wfmTemplate: {
       module: "wfm.file.directives",
-      templateDir: "lib/client/templates",
-      outputDir: "lib/client/dist-templates"
+      templateDir: "lib/angular/templates",
+      outputDir: "lib/angular/dist-templates"
     }
   });
   grunt.loadNpmTasks('fh-wfm-template-build');

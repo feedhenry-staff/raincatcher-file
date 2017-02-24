@@ -2,7 +2,7 @@
   "name": "fh-wfm-file",
   "version": "0.0.8",
   "description": "A WFM module providing file support",
-  "main": "lib/client/file-ng.js",
+  "main": "lib/angular/file-ng.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/feedhenry-raincatcher/raincatcher-file.git"

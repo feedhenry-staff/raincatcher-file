@@ -1,4 +1,4 @@
 node_modules
 npm-debug.log
 .idea
-lib/client/dist-templates
+lib/angular/dist-templates
