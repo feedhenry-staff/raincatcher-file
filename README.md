@@ -42,6 +42,59 @@ camera.capture()
       });
 ```
 
+Example of re-init/restarting fileTransfer queues :
+
+```javascript
+fileClient.processQueue()
+  .then(function(hasJobs) {
+    console.info('Found job to process in queues, starting file-Transfer');
+  }, function() {
+    console.info('No jobs to process currently, file-Transfer idle.');
+  })
+```
+
+Example of saving/persisting fileTransfer queues :
+
+```javascript
+fileClient.persistQueue()
+  .then(function(success) {
+    console.info('file-Transfer queues have been saved!');
+  }, function(error) {
+    console.error('Problem saving fileTransfer queues!: ', error);
+  });
+```
+
+Example of saving/persisting fileTransfer queues :
+
+```javascript
+fileClient.persistQueue()
+  .then(function(success) {
+    console.info('file-Transfer queues have been saved!');
+  }, function(error) {
+    console.error('Problem saving fileTransfer queues!: ', error);
+  });
+```
+
+
+Example of adding item to `uploads` queue :
+
+```javascript
+camera.capture()
+      .then(function(dataUrl) {
+        return fileClient.uploads.addItem({
+          id: profileData.id,
+          fileName: 'my-super-img-file.png'
+          fileURi: dataUrl,
+          createdTs: Date.now(),
+          status: 'waiting',
+          retries: 3,
+          userId: 'trever',
+          step: 'rsik-assessment',
+          result: this.model
+        })
+      });
+```
+
 For a more complete example around files operations, please check the [demo mobile app](https://github.com/feedhenry-raincatcher/raincatcher-demo-mobile/blob/master/src/app/file/file.js).
 
 #### Directives
@@ -95,8 +148,8 @@ Base url : `/file/wfm`
 
 ## Mediator events
 the module publishes following topics:
-- `wfm:file:detail:close` - on file detail view close. 
-    
+- `wfm:file:detail:close` - on file detail view close.
+
     Client app example:
    ```
      mediator.subscribeForScope('wfm:file:detail:close', $scope, function() {
