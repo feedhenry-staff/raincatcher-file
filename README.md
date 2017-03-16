@@ -42,15 +42,39 @@ camera.capture()
       });
 ```
 
-Example of re-init/restarting queues :
+Example of re-init/restarting fileTransfer queues :
 
 ```javascript
-fileClient.processQueue().then(function(hasJobs) {
-  console.info('Found job to process in queues, starting file-Transfer');
-}, function() {
-  console.info('No jobs to process currently, file-Transfer idle.');
-})
+fileClient.processQueue()
+  .then(function(hasJobs) {
+    console.info('Found job to process in queues, starting file-Transfer');
+  }, function() {
+    console.info('No jobs to process currently, file-Transfer idle.');
+  })
 ```
+
+Example of saving/persisting fileTransfer queues :
+
+```javascript
+fileClient.persistQueue()
+  .then(function(success) {
+    console.info('file-Transfer queues have been saved!');
+  }, function(error) {
+    console.error('Problem saving fileTransfer queues!: ', error);
+  });
+```
+
+Example of saving/persisting fileTransfer queues :
+
+```javascript
+fileClient.persistQueue()
+  .then(function(success) {
+    console.info('file-Transfer queues have been saved!');
+  }, function(error) {
+    console.error('Problem saving fileTransfer queues!: ', error);
+  });
+```
+
 
 Example of adding item to `uploads` queue :
 
